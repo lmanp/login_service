@@ -19,7 +19,7 @@ public class StudentController {
 	private StudentService studentService;
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping("/students")
+	@RequestMapping(method = RequestMethod.GET, value = "/students")
 	public List<Student> getAllStudents() {
 		return studentService.getAllStudents();
 
