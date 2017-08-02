@@ -2,6 +2,8 @@ package io.java.login_service.student;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,18 +28,20 @@ public class StudentController {
 	}
 
 	@RequestMapping("/students/{id}")
-	public Student getStudent(@PathVariable Number id) {
+	public Student getStudent(@PathVariable int id) {
 		return studentService.getStudent(id);
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method = RequestMethod.POST, value = "/students")
-	public void addStudent(@RequestBody Student student) {
+	public void addStudent(@RequestBody @Valid Student student) {
 		studentService.createStudent(student);
 
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/students/{id}")
-	public void removeStudent(@PathVariable Number id) {
+	public void removeStudent(@PathVariable int id) {
 		studentService.deleteStudent(id);
 	}
 }

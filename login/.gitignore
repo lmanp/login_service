@@ -1,1 +1,33 @@
-/target/
+#
+# Project specific excludes
+#
+
+tomcat
+
+#
+# Default excludes
+#
+
+# Binaries
+*.7z
+*.jar
+*.tar
+*.war
+*.ear
+*.class
+
+target/
+
+# eclipse project file
+.settings/*
+.classpath
+.project
+
+# OS
+.DS_Store
+
+# Misc
+*.swp
+release.properties
+pom.xml.releaseBackup
+pom.xml.tag
